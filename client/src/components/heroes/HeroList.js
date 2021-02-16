@@ -1,9 +1,19 @@
 import React from 'react'
+import getHeroPublisher from '../data/getHeroPublisher'
 
-export default function HeroList() {
+
+export default function HeroList({publisher}) {
+
+
+    const heroes = getHeroPublisher(publisher)
+
     return (
-        <div>
-            
-        </div>
+        <ul>
+            {heroes.map(hero => (
+                <li key={hero.id} >
+                      {hero.superhero}  
+                </li>
+            ))}
+        </ul>
     )
 }

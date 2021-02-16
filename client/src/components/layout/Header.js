@@ -13,17 +13,17 @@ export default function Header() {
             Home
           </Link>
           <Link
-            to="/"
-            className="text-indigo-300 text-lg hover:text-indigo-500 "
-          >
-            Heroes
-          </Link>
-          <Link
             to="login"
             className="text-indigo-300 text-lg hover:text-indigo-500 "
           >
             Login
           </Link >
+          <Link
+            to="/marvel"
+            className="text-indigo-300 text-lg hover:text-indigo-500 "
+          >
+            Marvel
+          </Link>
           <Link  to='/dc' className="text-indigo-300 text-lg hover:text-indigo-500 ">
             DC
           </Link>

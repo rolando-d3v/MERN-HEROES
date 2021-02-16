@@ -9,7 +9,7 @@ export default function HomeRouter() {
   return (
     <>
       <Header />
-      <div>
+      <div className='container mx-auto px-8' >
         <Switch>
           <Route exact path="/marvel" component={Marvel} />
           <Route exact path="/heroe/:heroId" component={heroe} />
