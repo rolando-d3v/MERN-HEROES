@@ -13,7 +13,7 @@ export default function Header() {
             Home
           </Link>
           <Link
-            to="login"
+            to="/login"
             className="text-indigo-300 text-lg hover:text-indigo-500 "
           >
             Login
@@ -30,7 +30,7 @@ export default function Header() {
         </ul>
 
         <ul className="flex items-center">
-          <Link className="text-indigo-300 font-bold text-lg hover:text-indigo-500 ">
+          <Link to="/" className="text-indigo-300 font-bold text-lg hover:text-indigo-500 ">
             Logout
           </Link>
         </ul>

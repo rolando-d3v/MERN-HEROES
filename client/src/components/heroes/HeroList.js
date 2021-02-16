@@ -1,19 +1,15 @@
-import React from 'react'
-import getHeroPublisher from '../data/getHeroPublisher'
+import React from "react";
+import getHeroPublisher from "../data/getHeroPublisher";
+import HeroCard from "./HeroCard";
 
+export default function HeroList({ publisher }) {
+  const heroes = getHeroPublisher(publisher);
 
-export default function HeroList({publisher}) {
-
-
-    const heroes = getHeroPublisher(publisher)
-
-    return (
-        <ul>
-            {heroes.map(hero => (
-                <li key={hero.id} >
-                      {hero.superhero}  
-                </li>
-            ))}
-        </ul>
-    )
+  return (
+    <div>
+      {heroes.map((hero) => (
+        <HeroCard key={hero.id} hero={hero} />
+      ))}
+    </div>
+  );
 }
