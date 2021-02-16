@@ -6,7 +6,7 @@ export default function HeroList({ publisher }) {
   const heroes = getHeroPublisher(publisher);
 
   return (
-    <div>
+    <div className='flex flex-wrap justify-center' >
       {heroes.map((hero) => (
         <HeroCard key={hero.id} hero={hero} />
       ))}
