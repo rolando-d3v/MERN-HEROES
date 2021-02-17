@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function HeroCard({ hero }) {
   const { id, alter_ego, first_appearance, characters, superhero } = hero;
@@ -25,9 +26,13 @@ export default function HeroCard({ hero }) {
             <h3 className="text-white ">{first_appearance} </h3>
           </div>
         </div>
-        <button className="absolute right-3 bottom-4 bg-indigo-500 hover:bg-indigo-600 rounded-xl px-4 py-1 font-bold text-white">
+        <Link
+          className="absolute right-3 bottom-4 bg-indigo-500 hover:bg-indigo-600 rounded-xl px-4 py-1 font-bold text-white"
+          type="button"
+          to={`/hero/${id}`}      
+        >
           Ver mas
-        </button>
+        </Link>
       </div>
     </div>
   );
