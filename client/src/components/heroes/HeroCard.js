@@ -5,7 +5,7 @@ export default function HeroCard({ hero }) {
   const { id, alter_ego, first_appearance, characters, superhero } = hero;
 
   return (
-    <div className="bg-gray-800 rounded-xl m-4 " style={{ width: "27rem" }}>
+    <div className="bg-gray-800 rounded-xl m-4 animate__animated animate__fadeIn " style={{ width: "25rem" }}>
       <div className="relative">
         <div className="flex w-full">
           <img
