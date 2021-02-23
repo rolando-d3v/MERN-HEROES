@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useMemo } from "react";
 import getHeroPublisher from "../data/getHeroPublisher";
 import HeroCard from "./HeroCard";
 
 export default function HeroList({ publisher }) {
-  const heroes = getHeroPublisher(publisher);
+
+
+  //useMemo para memorizar la peticion de datos
+  const heroes =  useMemo(() => getHeroPublisher(publisher), [publisher])
+  // const heroes = getHeroPublisher(publisher);
 
   return (
     <div className='flex flex-wrap justify-center' >

@@ -27,7 +27,7 @@ export default function HeroeId(props) {
   }
 
   return (
-    <div className="flex bg-coolGray-600 mt-24 rounded shadow-2xl ">
+    <div  data-aos="fade-right" className="flex bg-coolGray-600 mt-24 rounded shadow-2xl " >
       <div className="w-1/3">
         <img
           className="bg-cover"
