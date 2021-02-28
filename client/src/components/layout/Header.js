@@ -27,6 +27,9 @@ export default function Header() {
           <Link  to='/dc' className="text-indigo-300 text-lg hover:text-indigo-500 ">
             DC
           </Link>
+          <Link  to='/search' className="text-indigo-300 text-lg hover:text-indigo-500 ">
+            Search
+          </Link>
         </ul>
 
         <ul className="flex items-center">
