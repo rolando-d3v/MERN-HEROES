@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import AuthState from './context/auth/authState';
+
 
 
 
 
 ReactDOM.render(
-  <React.Fragment>
+  <AuthState>
     <App />
-  </React.Fragment>,
+  </AuthState>,
   document.getElementById('root')
   );
