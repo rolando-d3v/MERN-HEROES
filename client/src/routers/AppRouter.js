@@ -5,6 +5,7 @@ import AuthContext from "../context/auth/authContext";
 import Login from "../pages/Login";
 import HomeRouter from "./HomeRouter";
 import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 
 export default function AppRouter() {
 
@@ -14,7 +15,7 @@ export default function AppRouter() {
     <BrowserRouter>
       <div>
         <Switch>
-          <Route exact={true} path="/login" component={Login} />
+          <PublicRoute exact path="/login"  component={Login}  isAuthenticated={user.logged} />
           <PrivateRoute path="/" component={HomeRouter} isAuthenticated={user.logged} />
         </Switch>
       </div>
