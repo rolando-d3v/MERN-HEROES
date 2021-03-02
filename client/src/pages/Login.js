@@ -5,6 +5,10 @@ import { types } from "../context/auth/types";
 export default function Login({history}) {
   const { user, dispatch } = useContext(AuthContext);
 
+
+  // extrae el path de localstorage para poder regresar al anterior path
+  let lastpath = localStorage.getItem('lastpath')  || '/'
+
   const loginUser = () => {
     dispatch({
       type: types.LOGIN,
@@ -12,7 +16,7 @@ export default function Login({history}) {
         name: "Rolando",
       },
     });
-    history.replace('/')
+    history.replace(lastpath)
   };
 
   return (

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 import AuthContext from "../context/auth/authContext";
 
 import Login from "../pages/Login";
