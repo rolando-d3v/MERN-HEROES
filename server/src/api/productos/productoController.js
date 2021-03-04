@@ -1,7 +1,7 @@
 import productoModel from "./productoModel";
 
 //CREATED PRODUCTO
-export const createProductos = async (req, res) => {
+export const createProducto = async (req, res) => {
   try {
     const producto = new productoModel({
       name: req.body.name,
@@ -31,17 +31,36 @@ export const getProductos = async (req, res) => {
 
 //GET ONE PRODUCTO
 export const getProductoId = async (req, res) => {
-  res.json("hola mundo");
+  try {
+    const producto = await productoModel.findById({
+      _id: req.params.productoId,
+    });
+    res.status(200).json({ ok: true, producto });
+  } catch (err) {
+    console.log(err);
+  }
 };
-
 
 //UPDATE ONE PRODUCTO
-export const updateProductos = async (req, res) => {
-  res.json("hola mundo");
+export const updateProducto = async (req, res) => {
+  try {
+    const producto = await productoModel.findByIdAndUpdate(
+      { _id: req.params.productoId },
+      req.body,
+      { new: true }
+    );
+    res.status(200).json({ ok: true, producto });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
-
 //DELETE ONE PRODUCTO
-export const deleteProductos = async (req, res) => {
-  res.json("hola mundo");
+export const deleteProducto = async (req, res) => {
+  try {
+      const producto = await productoModel.findOneAndDelete({_id: req.params.productoId})
+      res.json({ok: true , message: `${producto.name} deleted successfully`})
+  } catch (err) {
+      console.log(err);
+  }
 };
