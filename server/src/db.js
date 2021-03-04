@@ -1,4 +1,3 @@
-// const mongoose = require("mongoose");
 import mongoose from "mongoose";
 
 const db = process.env.URLDB;
@@ -15,7 +14,7 @@ mongoose.connect(
     if (err) {
       console.log("db ERROR CONECTED !!");
     } else {
-      console.log("db connected successfully");
+      console.log("db successfully connected");
     }
   }
   );
