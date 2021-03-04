@@ -9,7 +9,6 @@ export const createProducto = async (req, res) => {
       category: req.body.category,
       imgUrl: req.body.imgUrl,
     });
-    console.log(producto);
     await producto.save();
     res
       .status(201)
@@ -35,7 +34,10 @@ export const getProductoId = async (req, res) => {
     const producto = await productoModel.findById({
       _id: req.params.productoId,
     });
-    res.status(200).json({ ok: true, producto });
+
+    !producto
+      ? res.send({ message: "el id no existe" })
+      : res.status(200).json({ ok: true, producto });
   } catch (err) {
     console.log(err);
   }
@@ -49,7 +51,10 @@ export const updateProducto = async (req, res) => {
       req.body,
       { new: true }
     );
-    res.status(200).json({ ok: true, producto });
+
+    !producto
+      ? res.send({ message: "el id no existe" })
+      : res.status(204).json({ ok: true, producto });
   } catch (err) {
     console.log(err);
   }
@@ -58,9 +63,11 @@ export const updateProducto = async (req, res) => {
 //DELETE ONE PRODUCTO
 export const deleteProducto = async (req, res) => {
   try {
-      const producto = await productoModel.findOneAndDelete({_id: req.params.productoId})
-      res.json({ok: true , message: `${producto.name} deleted successfully`})
+    const producto = await productoModel.findOneAndDelete({
+      _id: req.params.productoId,
+    });
+    res.json({ ok: true, message: `${producto.name} deleted successfully` });
   } catch (err) {
-      console.log(err);
+    console.log(err);
   }
 };
