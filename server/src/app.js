@@ -1,23 +1,22 @@
-const express = require("express");
-const morgan = require("morgan");
-const cors = require("cors");
-const bodyParser = require("body-parser");
+// const express = require("express");
+import express from 'express'
+import morgan from 'morgan'
+import cors from 'cors'
+import bodyParser from 'body-parser'
 
 import productosRouter from "./api/productos/productos.routes";
 
 //CONFIGURACION APP
-require("./config");
+import './config'
 
 //BASE DE DATOS
-require("./db");
+import './db'
 
 const app = express();
 const port = process.env.PORT;
 app.listen(port, () => console.log("server run in port " + port));
 
 //MIDDLEWARES
-app.use(express.json());
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(morgan("dev"));
