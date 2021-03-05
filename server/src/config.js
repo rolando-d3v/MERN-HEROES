@@ -7,6 +7,9 @@ process.env.PORT = process.env.PORT || 4000;
 process.env.URLDB = "mongodb://localhost/heroes"
 
 
+//VARIABLE DE ENTORNO SECRET  SUBIR A HEROKU
+process.env.SECRET =  process.env.SECRET || "DESARROLLO_SECRET"
+
 
 
 
@@ -17,15 +20,9 @@ process.env.URLDB = "mongodb://localhost/heroes"
 
 
 
-// //PUERTO DE SERVER
-// process.env.PORT = process.env.PORT || 4000;
-
 // //SI ESTOY EN DEV O PRODUCCION
 // process.env.NODE_ENV = process.env.NODE_ENV || "dev";
 
-
-// //VARIABLE DE ENTORNO SECRET  SUBIR A HEROKU
-// process.env.SECRET =  process.env.SECRET || "desarrollo"
 
 
 // //PUERTO DE DB DE MONGODB

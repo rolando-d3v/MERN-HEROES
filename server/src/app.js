@@ -6,6 +6,10 @@ import bodyParser from 'body-parser'
 
 import productosRouter from "./api/productos/productos.routes";
 import userRouter from './api/user/user.routes'
+import authRouter from './api/auth/auth.routes'
+
+import { createdSetupRoles } from './api/role/iniciarSetupRoles';
+
 //CONFIGURACION APP
 import './config'
 
@@ -13,6 +17,7 @@ import './config'
 import './db'
 
 const app = express();
+createdSetupRoles()
 const port = process.env.PORT;
 app.listen(port, () => console.log("server run in port " + port));
 
@@ -24,4 +29,5 @@ app.use(cors());
 
 // ROUTES DE APP
 app.use("/productos", productosRouter);
-app.use('/user', userRouter)
+app.use("/auth",authRouter );
+app.use('/users', userRouter)
