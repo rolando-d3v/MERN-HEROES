@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import userModel from "../user/userModel";
 import roleModel from "../role/roleModel";
 
-//CREATED UN USER
+//_* CREATED UN USER
 export const singUp = async (req, res) => {
   try {
     const userX = await userModel.findOne({ userName: req.body.userName });
@@ -32,7 +32,11 @@ export const singUp = async (req, res) => {
 
       const saveUser = await user.save();
       const token = jwt.sign(
-        { id: saveUser._id, userName: saveUser.userName, role: saveUser.role },
+        {
+          id: saveUser._id,
+          userName: saveUser.userName,
+          roles: saveUser.roles,
+        },
         process.env.SECRET,
         {
           expiresIn: "5h",
@@ -45,10 +49,8 @@ export const singUp = async (req, res) => {
   }
 };
 
-
-//LOGIN UN USER
+//_* LOGIN UN USER
 export const singIn = async (req, res) => {
-    
   const userExiste = await userModel.findOne({ email: req.body.email });
   if (!userExiste)
     return res.json({ ok: false, message: "el email no existe!!" });
@@ -62,7 +64,11 @@ export const singIn = async (req, res) => {
     return res.json({ ok: false, message: "pasword incorrecto" });
   } else {
     const token = jwt.sign(
-      { id: userExiste._id, userName: userExiste.userName },
+      {
+        id: userExiste._id,
+        userName: userExiste.userName,
+        roles: userExiste.roles,
+      },
       process.env.SECRET,
       { expiresIn: "5h" }
     );
