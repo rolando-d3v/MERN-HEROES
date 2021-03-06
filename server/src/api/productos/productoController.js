@@ -1,6 +1,9 @@
 import productoModel from "./productoModel";
 
+
+//==============================
 //CREATED PRODUCTO
+//==============================
 export const createProducto = async (req, res) => {
   try {
     const producto = new productoModel({
@@ -18,17 +21,38 @@ export const createProducto = async (req, res) => {
   }
 };
 
-//GET PRODUCTOS
+
+//==============================
+//GET PRODUCTOS CON PAGINATE
+//==============================
 export const getProductos = async (req, res) => {
   try {
-    const producto = await productoModel.find();
+
+    const limit = parseInt(req.query.limit) || 5
+    const page = parseInt(req.query.page) || 1
+
+    const producto = await productoModel.paginate({}, {page, limit, sort:{ createdAt: -1 }});   //mostrar de menor a mayor
     res.status(200).json({ ok: true, producto });
   } catch (err) {
     console.log(err);
   }
 };
 
+
+//GET PRODUCTOS
+// export const getProductos = async (req, res) => {
+//   try {
+//     const producto = await productoModel.find();
+//     res.status(200).json({ ok: true, producto });
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+
+
+//==============================
 //GET ONE PRODUCTO
+//==============================
 export const getProductoId = async (req, res) => {
   try {
     const producto = await productoModel.findById({
@@ -43,7 +67,10 @@ export const getProductoId = async (req, res) => {
   }
 };
 
+
+//==============================
 //UPDATE ONE PRODUCTO
+//==============================
 export const updateProducto = async (req, res) => {
   try {
     const producto = await productoModel.findByIdAndUpdate(
@@ -60,7 +87,10 @@ export const updateProducto = async (req, res) => {
   }
 };
 
+
+//==============================
 //DELETE ONE PRODUCTO
+//==============================
 export const deleteProducto = async (req, res) => {
   try {
     const producto = await productoModel.findOneAndDelete({

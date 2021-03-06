@@ -3,7 +3,11 @@ import jwt from "jsonwebtoken";
 import userModel from "../user/userModel";
 import roleModel from "../role/roleModel";
 
+
+//==============================
 //_* CREATED UN USER
+//==============================
+
 export const singUp = async (req, res) => {
   try {
     const userX = await userModel.findOne({ userName: req.body.userName });
@@ -21,7 +25,7 @@ export const singUp = async (req, res) => {
         password: await userModel.encryptPassword(req.body.password),
       });
 
-      //SI EXISTE ROLES
+      //si existe los roles ponle los roles que tiene y si no tiene ponle por default el  role de user
       if (req.body.roles) {
         const ArRoles = await roleModel.find({ name: { $in: req.body.roles } });
         user.roles = ArRoles.map((rol) => rol._id);
@@ -49,7 +53,12 @@ export const singUp = async (req, res) => {
   }
 };
 
+
+
+//==============================
 //_* LOGIN UN USER
+//==============================
+
 export const singIn = async (req, res) => {
   const userExiste = await userModel.findOne({ email: req.body.email });
   if (!userExiste)
