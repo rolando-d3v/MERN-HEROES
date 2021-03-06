@@ -1,5 +1,9 @@
 import userModel from './userModel'
 
+
+//==============================
+//_* OBTENER ALL USERS
+//==============================
 export const getUsers = async (req, res) => {
     try {
         const user = await userModel.find().populate('roles')
