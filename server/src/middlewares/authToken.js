@@ -71,9 +71,21 @@ export const tokenAdmin = async (req, res, next) => {
 //==============================
 export const tokenSenales = async (req, res, next) => {
   try {
+
+    const {roles} = req.usuario
+    console.log(req.usuario);
+    const userRole = await roleModel.find({_id: roles})
+
+    for (let i = 0; i < userRole.length; i++) {
+      if (userRole[i].name === 'senales') {
+        next()
+        return
+      }    
+    }
+
     return res
       .status(403)
-      .json({ ok: false, message: "el user no es ADMIN !!" });
+      .json({ ok: false, message: "el user no roles de SENALES!!" });
   } catch (err) {
     res.json({ ok: false, err });
   }
