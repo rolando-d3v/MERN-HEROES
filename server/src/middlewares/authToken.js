@@ -3,7 +3,9 @@ import roleModel from "../api/role/roleModel";
 import userModel from "../api/user/userModel";
 import "../config";
 
-//VERIFY TOKEN DE AUTHORIZATION
+//==============================
+//_* VERIFY TOKEN DE AUTHORIZATION
+//==============================
 export const verifyToken = async (req, res, next) => {
   try {
     const token = req.get("Authorization");
@@ -42,9 +44,9 @@ export const verifyToken = async (req, res, next) => {
 // };
 
 
-
-
-//TOKEN ES ADMIN
+//==============================
+//_* TOKEN ES ADMIN
+//==============================
 export const tokenAdmin = async (req, res, next) => {
   try {
     const { roles } = req.usuario;
@@ -64,7 +66,9 @@ export const tokenAdmin = async (req, res, next) => {
 };
 
 
-
+//==============================
+//_* TOKEN ES SENALES
+//==============================
 export const tokenSenales = async (req, res, next) => {
   try {
     return res

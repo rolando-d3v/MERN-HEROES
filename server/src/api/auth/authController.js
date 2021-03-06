@@ -7,7 +7,6 @@ import roleModel from "../role/roleModel";
 //==============================
 //_* CREATED UN USER
 //==============================
-
 export const singUp = async (req, res) => {
   try {
     const userX = await userModel.findOne({ userName: req.body.userName });
@@ -58,7 +57,6 @@ export const singUp = async (req, res) => {
 //==============================
 //_* LOGIN UN USER
 //==============================
-
 export const singIn = async (req, res) => {
   const userExiste = await userModel.findOne({ email: req.body.email });
   if (!userExiste)
