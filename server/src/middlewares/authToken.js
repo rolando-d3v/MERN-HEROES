@@ -51,7 +51,7 @@ export const tokenAdmin = async (req, res, next) => {
   try {
     const { roles } = req.usuario;
     //busca los roles por el id
-    const rok = await roleModel.find({ _id: roles });
+    const rok = await roleModel.find({ _id: {$in: roles} });
 
     for (let i = 0; i < rok.length; i++) {
       if (rok[i].name === "admin") {
@@ -59,7 +59,7 @@ export const tokenAdmin = async (req, res, next) => {
         return;
       }
     }
-    return res.status(403).json({ ok: false, message: "el user no es ADMIN !!" });
+    return res.status(403).json({ ok: false, message: "Require Admin role!!" });
   } catch (err) {
     res.json({ ok: false, err });
   }
@@ -74,7 +74,7 @@ export const tokenSenales = async (req, res, next) => {
 
     const {roles} = req.usuario
     console.log(req.usuario);
-    const userRole = await roleModel.find({_id: roles})
+    const userRole = await roleModel.find({_id: {$in: roles}})
 
     for (let i = 0; i < userRole.length; i++) {
       if (userRole[i].name === 'senales') {
@@ -85,7 +85,7 @@ export const tokenSenales = async (req, res, next) => {
 
     return res
       .status(403)
-      .json({ ok: false, message: "el user no roles de SENALES!!" });
+      .json({ ok: false, message: "required SENALES role!!" });
   } catch (err) {
     res.json({ ok: false, err });
   }

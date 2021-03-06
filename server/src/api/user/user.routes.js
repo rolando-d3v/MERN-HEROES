@@ -1,10 +1,12 @@
 import {Router} from 'express'
-import { getUsers } from './userController'
+import { tokenAdmin, verifyToken } from '../../middlewares/authToken'
+import { createUser, getUsers } from './userController'
 
 
 
 const router = Router()
 
+router.post('/', [verifyToken, tokenAdmin] , createUser)
 router.get('/', getUsers)
 
 
