@@ -25,10 +25,10 @@ export const createUser = async (req, res) => {
     });
 
     if (req.body.roles) {
-      const rolesMin = req.body.roles.toLowerCase();
+      const rolesMin = req.body.roles.toLowerCase();  //transforma el input en minuscula
       const userRoles = await roleModel.findOne({ name: { $in: rolesMin } });
 
-      !userRoles && res.json({ message: "el role no found" })
+      !userRoles && res.json({ message: `Role ${rolesMin} no exite!!`})
 
       const userRol = await roleModel.find({ name: { $in: rolesMin } });
       user.roles = userRol.map((rol) => rol._id);
