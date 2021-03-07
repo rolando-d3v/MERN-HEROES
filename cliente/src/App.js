@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Navbar from "./layout/navbar/Navbar";
 
 const Title = styled.h1`
   font-weight: 700;
@@ -14,19 +16,22 @@ const Button = styled.button`
   font-size: 1.5rem;
   border-radius: 15px;
   :focus {
-    outline: none
+    outline: none;
   }
   :hover {
-    background-color: #41d141
+    background-color: #41d141;
   }
 `;
 
 function App() {
   return (
-    <div className="App">
-      <Title>hola</Title>
-      <Button>Ver mas</Button>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+
+      <switch>
+        <Route />
+      </switch>
+    </BrowserRouter>
   );
 }
 
