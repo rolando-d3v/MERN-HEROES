@@ -17,7 +17,6 @@ export default function HeroeId(props) {
     // publisher,
     alter_ego,
     first_appearance,
-    characters,
   } = heroes;
 
 

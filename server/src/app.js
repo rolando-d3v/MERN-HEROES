@@ -4,10 +4,12 @@ import morgan from 'morgan'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 
+//import router
 import productosRouter from "./api/productos/productos.routes";
 import userRouter from './api/user/user.routes'
 import authRouter from './api/auth/auth.routes'
 
+//creacion de roles al iniciar la app
 import { createdSetupRoles } from './api/role/iniciarSetupRoles';
 
 //CONFIGURACION APP
