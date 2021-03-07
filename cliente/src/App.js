@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+
+const Title = styled.h1`
+  font-weight: 700;
+  color: red;
+  font-size: 1.5rem;
+`;
+
+const Button = styled.button`
+  background-color: #0b34e7;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 15px;
+  :focus {
+    outline: none
+  }
+  :hover {
+    background-color: #41d141
+  }
+`;
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title>hola</Title>
+      <Button>Ver mas</Button>
     </div>
   );
 }
