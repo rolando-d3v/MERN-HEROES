@@ -9,6 +9,8 @@ export default function Navbar() {
     setClick(!click);
   };
 
+
+  
   //captura el ancho de la ventana
   window.addEventListener("resize", function () {
     let ancho = window.innerWidth;
