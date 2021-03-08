@@ -3,13 +3,12 @@ import * as FaIcons from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Container } from "../../style/globalStyled";
 
-
-const mobileWidth = 640
-const mobile = `@media (max-width: ${mobileWidth}px)`
-
+const mobileWidth = 640;
+const mobile = `@media (max-width: ${mobileWidth}px)`;
 
 export const Nav = styled.nav`
-  background-color: #10131a;
+  background-color: ${(props) => props.theme.bgColor};
+  /* background-color: #10131a; */
   position: sticky;
   justify-content: center;
   top: 0;
@@ -53,13 +52,11 @@ export const MobileIcon = styled(Link)`
     color: #fff;
     font-size: 1.8rem;
     cursor: pointer;
-    :hover{
-    color: #4B59F7;
-  }
+    :hover {
+      color: #4b59f7;
+    }
   }
 `;
-
-
 
 // MENU
 export const NavMenu = styled.ul`
@@ -96,8 +93,8 @@ export const NavItem = styled(Link)`
   & svg {
     margin-left: 0.2rem;
   }
-  :hover{
-    color: #4B59F7;
+  :hover {
+    color: #4b59f7;
   }
 
   /* movil */
@@ -109,7 +106,7 @@ export const NavItem = styled(Link)`
     border-radius: 15px;
     &:hover {
       transition: all 0.3s ease;
-      background-color: #4B59F7;
+      background-color: #4b59f7;
       color: #000;
     }
   }
@@ -134,9 +131,27 @@ export const Button = styled.button`
     padding: 0.5em 1em;
     font-weight: 600;
     font-size: 1rem;
-    background-color: #4B59F7;
+    background-color: #4b59f7;
     width: 95%;
   }
 `;
 
-
+export const Toggle = styled.div`
+  position: relative;
+  background-color: #fff;
+  border-radius: 15px;
+  width: 40px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  & span {
+    transition: all 0.3s ease;
+    position: absolute;
+    right: ${({ the }) => (the ? "0.9px" : "19px")};
+    display: block;
+    background-color: red;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+  }
+`;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as s from "./Navbar.styled";
 import * as FaIcons from "react-icons/fa";
 
-export default function Navbar() {
+export default function Navbar({toggle, the}) {
   const [click, setClick] = useState(false);
 
   const onclickIcon = () => {
@@ -10,11 +10,11 @@ export default function Navbar() {
   };
 
 
-  
+
   //captura el ancho de la ventana
   window.addEventListener("resize", function () {
     let ancho = window.innerWidth;
-    console.log(ancho);
+    // console.log(ancho);
     if (ancho > 640) {
       setClick(false);
     }
@@ -24,7 +24,6 @@ export default function Navbar() {
     { icon: <FaIcons.FaPenSquare />, href: "/casas", name: "Formulario" },
     { icon: <FaIcons.FaSearch />, href: "/carousel", name: "Busqueda" },
     { icon: <FaIcons.FaTable />, href: "/carousel", name: "Tabla" },
-    { icon: <FaIcons.FaOutdent />, href: "/themes", name: "Tabla" },
   ];
 
   return (
@@ -46,6 +45,9 @@ export default function Navbar() {
             </s.NavItem>
           ))}
           <s.Button>SING UP</s.Button>
+          <s.Toggle onClick={() => toggle()} the={the} >
+            <span the={the}/>
+          </s.Toggle>
         </s.NavMenu>
       </s.NavbarContainer>
     </s.Nav>
