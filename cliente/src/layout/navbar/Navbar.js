@@ -1,39 +1,51 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import * as s from "./Navbar.styled";
+import * as FaIcons from "react-icons/fa";
 
 export default function Navbar() {
+  const [click, setClick] = useState(false);
+
+  const onclickIcon = () => {
+    setClick(!click);
+  };
+
+  //captura el ancho de la ventana
+  window.addEventListener("resize", function () {
+    let ancho = window.innerWidth;
+    console.log(ancho);
+    if (ancho > 640) {
+      setClick(false);
+    }
+  });
+
+  const navList = [
+    { icon: <FaIcons.FaPenSquare />, href: "/casas", name: "Formulario" },
+    { icon: <FaIcons.FaSearch />, href: "/carousel", name: "Busqueda" },
+    { icon: <FaIcons.FaTable />, href: "/carousel", name: "Tabla" },
+    { icon: <FaIcons.FaOutdent />, href: "/themes", name: "Tabla" },
+  ];
+
   return (
-    <Nav>
-      <div>
-        <Li>home</Li>
-        <Li>app</Li>
-        <Li>profile</Li>
-      </div>
-    </Nav>
+    <s.Nav>
+      <s.NavbarContainer>
+        <s.NavLogo to="/">
+          <s.NavIcon />
+          Ultra
+        </s.NavLogo>
+        <s.MobileIcon onClick={onclickIcon}>
+          {click ? <FaIcons.FaTimes /> : <FaIcons.FaBars />}
+        </s.MobileIcon>
+
+        <s.NavMenu click={click}>
+          {navList.map((item, index) => (
+            <s.NavItem key={index} to={item.href}>
+              {item.name}
+              {item.icon}
+            </s.NavItem>
+          ))}
+          <s.Button>SING UP</s.Button>
+        </s.NavMenu>
+      </s.NavbarContainer>
+    </s.Nav>
   );
 }
-
-const Nav = styled.nav`
-  background-color: #0f0f42;
-  position: sticky;
-  justify-content: center;
-  top: 0;
-  z-index: 999;
-  font-size: 1.2rem;
-  div {
-    padding: 0 1rem;
-    height: 64px;
-    display: flex;
-    align-items: center;
-  }
-`;
-
-const Li = styled.li`
-  color: #f0f0f8;
-  font-weight: 700;
-  display: flex;
-  margin: 0rem 0.5rem;
-  :hover {
-    color: #5db7db;
-  }
-`;
