@@ -1,10 +1,13 @@
 import React from 'react'
-import InfoSeccion from '../../layout/infoSeccion/InfoSeccion'
+import InfoSeccion from '../../components/infoSeccion/InfoSeccion'
+import {homeObjOne} from './Data'
 
 export default function Home() {
+
+
     return (
         <>
-            <InfoSeccion/>
+            <InfoSeccion {...homeObjOne} />
         </>
     )
 }

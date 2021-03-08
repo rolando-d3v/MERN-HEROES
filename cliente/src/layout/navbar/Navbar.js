@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import * as s from "./Navbar.styled";
 import * as FaIcons from "react-icons/fa";
 
-export default function Navbar({toggle, the}) {
+export default function Navbar({ toggle, toggleBoolean }) {
   const [click, setClick] = useState(false);
 
   const onclickIcon = () => {
     setClick(!click);
   };
-
-
 
   //captura el ancho de la ventana
   window.addEventListener("resize", function () {
@@ -45,9 +43,13 @@ export default function Navbar({toggle, the}) {
             </s.NavItem>
           ))}
           <s.Button>SING UP</s.Button>
-          <s.Toggle onClick={() => toggle()} the={the} >
-            <span the={the}/>
-          </s.Toggle>
+          <s.ContentToggle>
+            <FaIcons.FaSun style={{ color: !toggleBoolean ? "yellow" : "gray" }} />
+            <s.Toggle onClick={() => toggle()} toggleBoolean={toggleBoolean}>
+              <span />
+            </s.Toggle>
+            <FaIcons.FaMoon style={{ color: toggleBoolean ? "blue" : "gray" }} />
+          </s.ContentToggle>
         </s.NavMenu>
       </s.NavbarContainer>
     </s.Nav>

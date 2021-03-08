@@ -6,8 +6,11 @@ import { Container } from "../../style/globalStyled";
 const mobileWidth = 640;
 const mobile = `@media (max-width: ${mobileWidth}px)`;
 
+
+//NAVBAR
 export const Nav = styled.nav`
   background-color: ${(props) => props.theme.bgColor};
+  transition: all 0.5s ease ;
   /* background-color: #10131a; */
   position: sticky;
   justify-content: center;
@@ -89,7 +92,6 @@ export const NavItem = styled(Link)`
   text-decoration: none;
   color: #fff;
   margin: 0 0.3rem;
-
   & svg {
     margin-left: 0.2rem;
   }
@@ -112,6 +114,8 @@ export const NavItem = styled(Link)`
   }
 `;
 
+
+//button de menu
 export const Button = styled.button`
   background: transparent;
   border-radius: 5px;
@@ -136,7 +140,14 @@ export const Button = styled.button`
   }
 `;
 
+
+//toggle switch  de dark a light
+export const ContentToggle = styled.div`
+display: flex;
+align-items: center;
+`
 export const Toggle = styled.div`
+  margin: 0 5px;
   position: relative;
   background-color: #fff;
   border-radius: 15px;
@@ -147,7 +158,7 @@ export const Toggle = styled.div`
   & span {
     transition: all 0.3s ease;
     position: absolute;
-    right: ${({ the }) => (the ? "0.9px" : "19px")};
+    right: ${({ toggleBoolean }) => (toggleBoolean ? "0.9px" : "19px")};
     display: block;
     background-color: red;
     border-radius: 50%;

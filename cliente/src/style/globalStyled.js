@@ -33,7 +33,7 @@ export const Container = styled.div`
 
 
 
-//button con prosp
+//button con props
 export const Buttonx = styled.button`
   background: transparent;
   border-radius: 3px;
