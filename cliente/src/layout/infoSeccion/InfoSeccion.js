@@ -4,9 +4,9 @@ import { InfoSec } from './InfoSeccion.styled'
 export default function InfoSeccion({lightBg}) {
     return (
         <div>
-            {/* <InfoSec lightBg={lightBg} >
+            <InfoSec lightBg={lightBg} >
                 hola
-            </InfoSec> */}
+            </InfoSec>
         </div>
     )
 }

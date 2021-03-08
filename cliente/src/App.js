@@ -46,8 +46,7 @@ function App() {
       <ThemeProvider theme={theme === "light" ? themeLight : themeDark}>
         <BrowserRouter>
           <GlobalStyle />
-          <Navbar toggle={toggle}  the={the}  />
-          <button onClick={() => toggle()}>hola</button>
+          <Navbar toggle={toggle} the={the} />
           <Switch>
             <Route exact path="/" component={Home} />
           </Switch>
