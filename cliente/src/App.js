@@ -19,6 +19,7 @@ function App() {
   const [theme, setTheme] = useState("light");
   const [the, setThe] = useState(false);
   
+  
   const toggle = () => {
     if (theme === "light") {
       setTheme("dark");
@@ -39,7 +40,6 @@ function App() {
       setThe(true)
     }
   }, []);
-
 
   return (
     <div>
