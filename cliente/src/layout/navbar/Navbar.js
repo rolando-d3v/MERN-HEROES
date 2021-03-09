@@ -19,7 +19,7 @@ export default function Navbar({ toggle, toggleBoolean }) {
   });
 
   const navList = [
-    { icon: <FaIcons.FaPenSquare />, href: "/casas", name: "Formulario" },
+    { icon: <FaIcons.FaPenSquare />, href: "/", name: "Home" },
     { icon: <FaIcons.FaSearch />, href: "/carousel", name: "Busqueda" },
     { icon: <FaIcons.FaTable />, href: "/carousel", name: "Tabla" },
   ];
@@ -42,7 +42,7 @@ export default function Navbar({ toggle, toggleBoolean }) {
               {item.icon}
             </s.NavItem>
           ))}
-          <s.Button>SING UP</s.Button>
+          <s.Button>SIGN UP</s.Button>
           <s.ContentToggle>
             <FaIcons.FaSun style={{ color: !toggleBoolean ? "yellow" : "gray" }} />
             <s.Toggle onClick={() => toggle()} toggleBoolean={toggleBoolean}>

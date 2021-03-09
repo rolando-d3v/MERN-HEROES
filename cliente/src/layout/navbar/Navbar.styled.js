@@ -13,12 +13,13 @@ export const Nav = styled.nav`
   transition: all 0.5s ease ;
   /* background-color: #10131a; */
   position: sticky;
-  justify-content: center;
   top: 0;
+  justify-content: center;
   z-index: 999;
   font-size: 1.2rem;
   padding: 0 0.5rem;
   height: 64px;
+  width: 100%;
   display: flex;
   align-items: center;
 `;
