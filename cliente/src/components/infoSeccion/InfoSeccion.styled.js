@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import * as FaIcons from "react-icons/fa";
+
 // import { Link } from "react-router-dom";
 
+/* background-color: ${(props) => props.theme.bgColor} ; */
 export const InfoSec = styled.div`
-  /* background-color: ${(props) => props.theme.bgColor} ; */
   padding: 160px 0;
   color: #fff;
   background-color: ${({ lightBg }) => (lightBg ? "#fff" : "#101522")};
