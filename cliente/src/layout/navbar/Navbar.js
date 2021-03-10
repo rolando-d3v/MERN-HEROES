@@ -5,9 +5,18 @@ import * as FaIcons from "react-icons/fa";
 export default function Navbar({ toggle, toggleBoolean }) {
   const [click, setClick] = useState(false);
 
+
   const onclickIcon = () => {
-    setClick(!click);
+    if (click) {
+      //funcion para remover el scroll del body
+      document.querySelector("body").classList.remove("removeScrollBody");
+      setClick(false);
+    } else {
+      document.querySelector("body").classList.add("removeScrollBody");
+      setClick(true);
+    }
   };
+
 
   //captura el ancho de la ventana
   window.addEventListener("resize", function () {
@@ -18,9 +27,16 @@ export default function Navbar({ toggle, toggleBoolean }) {
     }
   });
 
+
+  //funcion para cerrar el sidebar movil al hacer click
+  const clickLink = () => {
+    setClick(false);
+    document.querySelector("body").classList.remove("removeScrollBody");
+  };
+
   const navList = [
     { icon: <FaIcons.FaPenSquare />, href: "/", name: "Home" },
-    { icon: <FaIcons.FaSearch />, href: "/carousel", name: "Busqueda" },
+    { icon: <FaIcons.FaSearch />, href: "/price", name: "price" },
     { icon: <FaIcons.FaTable />, href: "/carousel", name: "Tabla" },
   ];
 
@@ -37,18 +53,22 @@ export default function Navbar({ toggle, toggleBoolean }) {
 
         <s.NavMenu click={click}>
           {navList.map((item, index) => (
-            <s.NavItem key={index} to={item.href}>
+            <s.NavItem key={index} to={item.href} onClick={() => clickLink()}>
               {item.name}
               {item.icon}
             </s.NavItem>
           ))}
           <s.Button>SIGN UP</s.Button>
           <s.ContentToggle>
-            <FaIcons.FaSun style={{ color: !toggleBoolean ? "yellow" : "gray" }} />
+            <FaIcons.FaSun
+              style={{ color: !toggleBoolean ? "yellow" : "gray" }}
+            />
             <s.Toggle onClick={() => toggle()} toggleBoolean={toggleBoolean}>
               <span />
             </s.Toggle>
-            <FaIcons.FaMoon style={{ color: toggleBoolean ? "blue" : "gray" }} />
+            <FaIcons.FaMoon
+              style={{ color: toggleBoolean ? "blue" : "gray" }}
+            />
           </s.ContentToggle>
         </s.NavMenu>
       </s.NavbarContainer>

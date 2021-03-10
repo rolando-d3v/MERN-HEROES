@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navbar from "./layout/navbar/Navbar";
-import Home from "./pages/homePage/Home";
+import Home from "./pages/Home";
+import PricePage from "./pages/PricePage";
 import GlobalStyle from "./style/globalStyled";
 import { ThemeProvider } from "styled-components";
 import { useDarkMode } from "./theme/useDarkMode";
@@ -18,6 +19,7 @@ function App() {
           <Navbar toggle={toggle} toggleBoolean={toggleBoolean} />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/price" component={PricePage} />
           </Switch>
         </BrowserRouter>
       </ThemeProvider>

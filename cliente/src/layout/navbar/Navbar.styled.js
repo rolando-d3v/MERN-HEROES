@@ -6,11 +6,10 @@ import { Container } from "../../style/globalStyled";
 const mobileWidth = 640;
 const mobile = `@media (max-width: ${mobileWidth}px)`;
 
-
 //NAVBAR
 export const Nav = styled.nav`
   background-color: ${(props) => props.theme.bgColor};
-  transition: all 0.5s ease ;
+  transition: all 0.5s ease;
   /* background-color: #10131a; */
   position: sticky;
   top: 0;
@@ -81,6 +80,10 @@ export const NavMenu = styled.ul`
     top: 64px;
     opacity: ${({ click }) => (click ? "100%" : "5%")};
     left: ${({ click }) => (click ? 0 : "-100%")};
+
+    overflow-y: ${({ click }) => click && "hidden"};
+    overflow: hidden;
+
     transition: all 0.5s ease;
   }
 `;
@@ -115,7 +118,6 @@ export const NavItem = styled(Link)`
   }
 `;
 
-
 //button de menu
 export const Button = styled.button`
   background: transparent;
@@ -141,12 +143,11 @@ export const Button = styled.button`
   }
 `;
 
-
 //toggle switch  de dark a light
 export const ContentToggle = styled.div`
-display: flex;
-align-items: center;
-`
+  display: flex;
+  align-items: center;
+`;
 export const Toggle = styled.div`
   margin: 0 5px;
   position: relative;

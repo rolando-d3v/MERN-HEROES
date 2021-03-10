@@ -8,10 +8,6 @@ export const InfoSec = styled.div`
   color: #fff;
   background-color: ${({ lightBg }) => (lightBg ? "#fff" : "#101522")};
   transition: all 0.5s ease;
-  
-  /* @media screen and (min-width : 1024px) {
-    height: calc(100vh - 64px);
-  } */
   `;
 
 export const InfoRow = styled.div`
@@ -40,7 +36,7 @@ export const InfoColumn = styled.div`
 
 
 //primer seccion
-export const TextWrapper = styled.h4`
+export const TextWrapper = styled.div`
   max-width: 540px;
   padding-top: 0;
   padding-bottom: 60px;

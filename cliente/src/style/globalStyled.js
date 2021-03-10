@@ -7,12 +7,21 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+
 }
+ //funcion para remover el scroll del body
+.removeScrollBody {
+  overflow: hidden;
+}
+//quita el scroll de un div o box
+.detscroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 `;
 export default GlobalStyle;
 
-
-
+//////////////////
 
 export const Container = styled.div`
   z-index: 1;
@@ -31,8 +40,6 @@ export const Container = styled.div`
   }
 `;
 
-
-
 //button con props
 export const Buttonx = styled.button`
   background: transparent;
@@ -42,8 +49,10 @@ export const Buttonx = styled.button`
   margin: 0.5em 1em;
   padding: 0.25em 1em;
 
-  ${props => props.primary && css`
-    background: palevioletred;
-    color: white;
-  `}
+  ${(props) =>
+    props.primary &&
+    css`
+      background: palevioletred;
+      color: white;
+    `}
 `;
