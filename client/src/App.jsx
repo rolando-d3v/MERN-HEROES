@@ -2,9 +2,8 @@
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <h3>red</h3>
-      <img src="maarienella2.jpg" alt="red" />
     </div>
   );
 }
