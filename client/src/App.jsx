@@ -1,10 +1,8 @@
-import Header from "./layout/header/Header";
 import AppRouter from "./routers/AppRouter";
 
 function App() {
   return (
-    <div className="">
-      <Header/>
+    <div>
       <AppRouter />
     </div>
   );

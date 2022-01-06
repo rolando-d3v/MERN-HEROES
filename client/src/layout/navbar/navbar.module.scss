@@ -1,0 +1,45 @@
+.header {
+  background-color: #0e1038;
+  display: flex;
+  justify-content: center;
+
+  .content_header {
+    display: flex;
+    height: 64px;
+    align-items: center;
+    justify-content: space-between;
+    // color: white;
+    width: 94%;
+  }
+}
+
+.content_nav {
+  display: flex;
+  align-items: center;
+
+  .link_title {
+    text-decoration: none;
+    color: white;
+  }
+
+  .content_link {
+    .link {
+      text-decoration: none;
+      color: white;
+      margin: 0 10px;
+    }
+  }
+
+}
+
+
+.link_active {
+  color: red !important;
+  text-decoration: none;
+  &:hover {
+    color: red !important;
+  }
+}
+
+.nav_derecho {
+}
