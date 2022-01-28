@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Scream404 from "../components/404/Scream404";
 import DcPage from "../components/dc/DcPage";
 import LoginPage from "../components/login/LoginPage";
 import MarvelPage from "../components/marvel/MarvelPage";
@@ -16,6 +17,7 @@ export default function AppRouter() {
         <Route path="/marvel" element={<MarvelPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="*" element={<Scream404 />} />
       </Routes>
     </BrowserRouter>
   );
